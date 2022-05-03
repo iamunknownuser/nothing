@@ -67,10 +67,10 @@ router.get('/apk', async (req, res) => {
     const name2 = name.replace(/ /gi, '')
     const try2 = await axios.get('https://apkpure.com/' + name2 +'/'+ id +'/download?from=details')
     const $ = cheerio.load(try2.data)
-    const url = $('a.ga').attr('href')
+    const link = $('a.ga').attr('href')
     let result = {
     name : name ,
-      url : url 
+      url : link
     
     }
     
