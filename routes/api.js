@@ -3,12 +3,9 @@ let express = require('express');
 let creator = "Sanuwa"
 let play = require('playstore-scraper')
 let axios = require('axios')
+let cheerio = require('cheerio')
 let fs = require('fs')
-let fetch = require('node-fetch');
 let router = express.Router();
-let hxz = require('hxz-api')
-const dcanvas = require('discord-canvas')
-const canvac = require('canvacord')
 let options = require(__path + '/lib/options.js');
 let {
 	color,
@@ -52,7 +49,7 @@ loghandler = {
 	error: {
 		status: 404,
 		creator: `${creator}`,
-		message: 'An internal error occurred. Please report via WhatsApp wa.me/6288286421519'
+		message: 'An internal error occurred. Please report via WhatsApp wa.me/94701629707'
 	}
 }
 
