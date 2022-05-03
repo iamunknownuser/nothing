@@ -18,6 +18,7 @@
   
   "dependencies": {
     "axios": "^0.21.1",
+    "playstore-scraper" : "^1.0.1",
     "canvacord": "^5.2.3",
     "chalk": "^4.1.0",
     "cheerio": "^1.0.0-rc.10",
