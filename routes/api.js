@@ -57,7 +57,7 @@ loghandler = {
 
 
 router.get('/apk', async (req, res) => {
-	let id = req.query.url
+	let url = req.query.url
 	if (!url) return res.json(loghandler.noturl)
   if(!isUrl(url)) return res.json(loghandler.nurl)
 	try {
