@@ -1,0 +1,19 @@
+
+   
+{
+    "name": "Aquabot",
+    "description": "AQUABOT  - Makes it easy and fun to use Whatsapp.",
+    "logo": "https://i.ibb.co/LhyDWxR/aquabot.jpg",
+    "keywords": ["whatsapp", "userbot", "aqua", "WhatsAsena", "bot", "api", "ai"],
+    "repository": "https://github.com/iamMagma/ptsp",
+    "website":   "https://aquabot.ga/",
+    "success_url": "https://sanuw-api.herokuapp.com/",
+    "stack": "container",
+    
+    "addons": [{
+      "plan": "heroku-postgresql"
+    }],
+    "buildpacks": [{
+      "url": "heroku-community/apt"
+      }]
+  }
