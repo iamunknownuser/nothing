@@ -18,6 +18,9 @@ router.get('/nicepage.css', (req, res) => {
 router.get('/nicepage.js', (req, res) => {
     res.sendFile(__path + '/nicepage.js')
 })
+router.get('/Home.css', (req, res) => {
+    res.sendFile(__path + '/Home.css')
+})
 
 
 
