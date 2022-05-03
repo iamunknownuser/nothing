@@ -19,12 +19,10 @@
   "dependencies": {
     "axios": "^0.21.1",
     "playstore-scraper" : "^1.0.1",
-    "canvacord": "^5.2.3",
     "chalk": "^4.1.0",
     "cheerio": "^1.0.0-rc.10",
     "child_process": "^1.0.2",
     "cors": "^2.8.5",
-    "discord-canvas": "^1.4.1",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "fake-useragent": "^1.0.1",
@@ -45,8 +43,8 @@
     "qs": "^6.10.1",
     "ssl-express-www": "^3.0.7",
     "urlencode": "^1.1.0",
-    "util": "^0.12.4",
-    "sanuwa-npm": "^1.1.8"
+    "util": "^0.12.4"
+    
   }
   
 }
