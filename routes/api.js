@@ -1,6 +1,7 @@
 __path = process.cwd()
 let express = require('express');
 let creator = "Sanuwa"
+let play = require('playstore-scraper')
 let axios = require('axios')
 let fs = require('fs')
 let fetch = require('node-fetch');
