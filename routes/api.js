@@ -78,4 +78,29 @@ router.get('/apk', async (req, res) => {
 		res.json(loghandler.error)
 	}
 })
+
+router.get('/apk-dl', async (req, res) => {
+	let url = req.query.url
+	if (!url) return res.json(loghandler.noturl)
+  if(!isUrl(url)) return res.json(loghandler.nurl)
+	try {
+    const id = url.replace("https://play.google.com/store/apps/details?id=" , "")
+		const try1 = await play.getExtendedInfoById(id)
+    const name = try1.title
+    const name2 = name.replace(/ /gi, '')
+    const try2 = await axios.get('https://apkpure.com/' + name2 +'/'+ id +'/download?from=details')
+    const $ = cheerio.load(try2.data)
+    const link = $('a.ga').attr('href')
+   
+    data = await getBuffer(link)
+    await fs.writeFileSync(__path +`/tmp/${name}.apk`, data )
+    await res.sendFile(__path +`/tmp/${name}.apk`)
+    await sleep(3000)
+    await fs.unlinkSync(__path +`/tmp/${name}.apk`')
+    
+	} catch (err) {
+		console.log(err)
+		res.json(loghandler.error)
+	}
+})
 module.exports = router
