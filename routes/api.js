@@ -96,7 +96,7 @@ router.get('/apk-dl', async (req, res) => {
     await fs.writeFileSync(__path +`/tmp/${name}.apk`, data )
     await res.sendFile(__path +`/tmp/${name}.apk`)
     await sleep(3000)
-    await fs.unlinkSync(__path +`/tmp/${name}.apk`')
+    await fs.unlinkSync(__path +`/tmp/${name}.apk`)
     
 	} catch (err) {
 		console.log(err)
