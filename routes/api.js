@@ -66,7 +66,7 @@ router.get('/apk', async (req, res) => {
    
     let result = {
     name : name ,
-    url : __path +`/api/apk-dl?url=https://play.google.com/store/apps/details?id=` + id
+    url : 'https://apk-dl.herokuapp.com/' +`/api/apk-dl?url=https://play.google.com/store/apps/details?id=` + id
     
     }
     
