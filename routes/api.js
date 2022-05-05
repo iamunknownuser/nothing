@@ -34,7 +34,7 @@ loghandler = {
 		status: false,
 		creator: `${creator}`,
 		code: 406,
-		message: 'Masukan URL'
+		message: 'Enter URL'
 	},
 	nurl: {
 		status: false,
@@ -63,12 +63,10 @@ router.get('/apk', async (req, res) => {
 		const try1 = await play.getExtendedInfoById(id)
     const name = try1.title
     const name2 = name.replace(/ /gi, '')
-    const try2 = await axios.get('https://apkpure.com/' + name2 +'/'+ id +'/download?from=details')
-    const $ = cheerio.load(try2.data)
-    const link = $('a.ga').attr('href')
+   
     let result = {
     name : name ,
-      url : link
+    url : __path +`/api/apk-dl?url=https://play.google.com/store/apps/details?id=` + id
     
     }
     
@@ -85,18 +83,16 @@ router.get('/apk-dl', async (req, res) => {
   if(!isUrl(url)) return res.json(loghandler.nurl)
 	try {
     const id = url.replace("https://play.google.com/store/apps/details?id=" , "")
-		const try1 = await play.getExtendedInfoById(id)
-    const name = try1.title
-    const name2 = name.replace(/ /gi, '')
-    const try2 = await axios.get('https://apkpure.com/' + name2 +'/'+ id +'/download?from=details')
+   
+    const try2 = await axios.get('https://apkpure.com/' + 'apk' +'/'+ id +'/download?from=details')
     const $ = cheerio.load(try2.data)
     const link = $('a.ga').attr('href')
    
     data = await getBuffer(link)
-    await fs.writeFileSync(__path +`/tmp/${name}.apk`, data )
-    await res.sendFile(__path +`/tmp/${name}.apk`)
+    await fs.writeFileSync(__path +`/tmp/playstore.apk`, data )
+    await res.sendFile(__path +`/tmp/playstore.apk`)
     await sleep(3000)
-    await fs.unlinkSync(__path +`/tmp/${name}.apk`)
+    await fs.unlinkSync(__path +`/tmp/playstore.apk`)
     
 	} catch (err) {
 		console.log(err)
